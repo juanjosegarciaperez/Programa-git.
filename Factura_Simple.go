@@ -22,6 +22,10 @@ func factura() {
 	reader := bufio.NewReader(os.Stdin)
 	var total float64 = 0.0
 
+	fmt.Print("Ingrese el nombre del cliente: ")
+	scanner := bufio.NewReader(os.Stdin)
+	nombreCliente, _ := scanner.ReadString('\n')
+
 	for {
 		fmt.Print("Ingrese el nombre del producto (o 'salir' para terminar): ")
 		nombre, _ := reader.ReadString('\n')
@@ -62,6 +66,8 @@ func factura() {
 		fmt.Println("Producto agregado con exito")
 	}
 
+	fmt.Println("\nnombre de cliente: ", nombreCliente)
+
 	fmt.Println("\nLista de productos ingresados: ")
 	for _, producto := range productos {
 		subtotal := producto.precio * float64(producto.cantidad)
@@ -85,9 +91,7 @@ func factura() {
 
 	fechaActual := time.Now().Format("02/01/2006 15:04:05")
 
-	fmt.Print("Ingrese el nombre del cliente: ")
-	scanner := bufio.NewReader(os.Stdin)
-	nombreCliente, _ := scanner.ReadString('\n')
+	
 
 	pdf.SetFont("Arial", "", 12)
 	pdf.Cell(40, 10, fmt.Sprintf("Cliente: %s", nombreCliente))
