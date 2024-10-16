@@ -31,7 +31,7 @@ func factura() {
 			break
 		}
 
-		fmt.Print("Ingrese el precio del produnto: ")
+		fmt.Print("Ingrese el precio del producto: ")
 		precioInput, _ := reader.ReadString('\n')
 		precioInput = strings.TrimSpace(precioInput)
 		precio, err := strconv.ParseFloat(precioInput, 64)
