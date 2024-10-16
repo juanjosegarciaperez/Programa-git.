@@ -7,7 +7,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
 	"github.com/jung-kurt/gofpdf/v2"
 )
 
@@ -17,7 +16,7 @@ type Producto struct {
 	cantidad int
 }
 
-func main() {
+func factura() {
 
 	var productos []Producto
 	reader := bufio.NewReader(os.Stdin)
@@ -149,3 +148,7 @@ func drawTable(pdf *gofpdf.Fpdf, productos []Producto, total float64) {
 	pdf.Cell(colWidth[1], 10, fmt.Sprintf("%.2f", total))
 
 }
+
+func main() {
+	factura()
+}	
